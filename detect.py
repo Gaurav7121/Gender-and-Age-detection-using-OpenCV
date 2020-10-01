@@ -1,5 +1,6 @@
 #A Gender and Age Detection program by Mahesh Sawant
 
+#Importing Libraries
 import cv2
 import math
 import argparse
@@ -31,6 +32,7 @@ parser.add_argument('--image')
 
 args=parser.parse_args()
 
+#Loading Models
 faceProto="face/opencv_face_detector.pbtxt"
 faceModel="face/opencv_face_detector_uint8.pb"
 ageProto="age/age_deploy.prototxt"
@@ -46,6 +48,7 @@ faceNet=cv2.dnn.readNet(faceModel,faceProto)
 ageNet=cv2.dnn.readNet(ageModel,ageProto)
 genderNet=cv2.dnn.readNet(genderModel,genderProto)
 
+#Recieving Frame from web-cam or a image
 video=cv2.VideoCapture(args.image if args.image else 0)
 
 #To Save the Video
